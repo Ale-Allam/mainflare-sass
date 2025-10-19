@@ -1,0 +1,62 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins'as *;
+// Button Components
+
+.btn {
+  background: $gradient;
+  border: none;
+  color: #ffffff;
+  padding: 1rem 2.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: $font-lg;
+  margin: 0.4rem 0.2rem;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  border-radius: 5rem;
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+  }
+
+  &:hover:after {
+    width: 21rem;
+    height: 20rem;
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    transform: translateY(0.2rem);
+    box-shadow: none;
+  }
+}
+
+.secondary-btn {
+  background: white;
+  box-shadow: 0 0 0.2rem 0 #22B0F2;
+  color: $primary;
+
+  &:hover {
+    box-shadow: 0 0 0.4rem 0 #22B0F2;
+    text-shadow: 0 0 0.4rem #22B0F2;
+  }
+}

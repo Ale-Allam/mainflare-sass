@@ -1,0 +1,118 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins'as *;
+// Sidebar Navigation
+
+.sidebar {
+  position: fixed;
+  top: 8rem;
+  left: 1rem;
+  width: 32rem;
+  max-height: 70rem;
+  background: $white;
+  box-shadow: -0.2rem 0 1.5rem rgba(0, 0, 0, 0.1);
+  transition: transform .5s ease-out;
+  z-index: 1001;
+  padding: 4rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 2.1rem;
+  transform: translateX(calc(-100% + -1rem));
+
+  &.active {
+    transform: translateX(0%);
+    transition: transform .5s ease .3s;
+
+    .sidebar-nav li {
+      opacity: 1;
+      transform: translateX(0);
+
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          transition-delay: #{$i * 0.1}s;
+        }
+      }
+    }
+  }
+
+  @include respond-to(tablet) {
+    width: calc(100% - 2rem);
+  }
+
+  @include respond-to(phone) {
+    padding: 8rem 2rem 4rem;
+  }
+}
+
+.sidebar-nav {
+  list-style: none;
+
+  li {
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateX(5rem);
+    transition: all 0.3s ease;
+  }
+
+  a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 500;
+    padding: 1.2rem 0;
+    display: block;
+    transition: color 0.3s ease, padding 0.3s ease;
+    border-bottom: 0.1rem solid #eee;
+
+    &:hover {
+      color: #007bff;
+      padding-left: 1rem;
+    }
+
+    @include respond-to(phone) {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+// Overlay
+.overlay {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  opacity: 1;
+  left: 0;
+  transform: translateX(-100%);
+  transition: all 0.3s ease 0.3s;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.100);
+  backdrop-filter: blur(0.1rem);
+
+  &.active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.3s ease 0s;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  font-size: 2.4rem;
+  cursor: pointer;
+  color: #333;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #f0f0f0;
+  }
+}

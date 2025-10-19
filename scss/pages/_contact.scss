@@ -1,0 +1,133 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins'as *;
+// Contact Section
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: stretch;
+  position: relative;
+
+  @include respond-to(tablet) {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+
+  &__item {
+    background: $gray-blue-2;
+    border-radius: 1.6rem;
+    padding: 2rem;
+    box-shadow: 0 0.4rem 2.4rem $opacity-8;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.6rem;
+  }
+
+  &__icon {
+    width: 4.8rem;
+    height: 4.8rem;
+    background: $gray-blue-2;
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $font-xl;
+    color: $color-text;
+    flex-shrink: 0;
+
+    &--chat {
+      background: $gradient;
+      color: $white;
+    }
+  }
+
+  &__content {
+    flex: 1;
+  }
+
+  &__title {
+    font-size: $font-lg;
+    font-weight: 600;
+    color: $color-text;
+    margin-bottom: 0.8rem;
+  }
+
+  &__description {
+    font-size: $font-sm;
+    color: $opacity-65-alt;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+  }
+
+  &__link {
+    color: $primary;
+    text-decoration: none;
+    font-size: $font-sm;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__detail {
+    font-size: $font-base;
+    color: $color-text;
+    font-weight: 500;
+  }
+
+  &__hours {
+    font-size: $font-sm;
+    color: $opacity-65-alt;
+    margin-bottom: 0.4rem;
+  }
+
+  &__map {
+    width: 100%;
+    height: 20rem;
+    background: $gray-2;
+    border-radius: 1.2rem;
+    margin-top: 1.6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__map-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, $gray-2 0%, $light-gray 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $opacity-50;
+    font-size: $font-sm;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        radial-gradient(circle at 30% 40%, rgba(34, 128, 242, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(236, 5, 230, 0.1) 0%, transparent 50%);
+    }
+  }
+
+  &__map-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,108 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+// Card Components
+
+.service-card {
+  background-color: $white;
+  background-color: rgb(245 245 245);
+  padding: 2.4rem;
+  border-radius: $border-radius-lg;
+  transition: $transition;
+  border: 0.1rem solid rgba(19, 56, 130, 0.1);
+  overflow: hidden;
+
+  &__title-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: $white;
+    width: fit-content;
+    border-radius: 5rem;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: $border-radius-full;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $transition;
+
+    svg {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: $font-xl;
+  }
+
+  &__description {
+    color: $text-light;
+    margin-bottom: 2rem;
+    font-size: $font-2xl;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    color: $primary;
+    font-weight: 500;
+
+    svg {
+      margin-left: 0.5rem;
+      transition: $transition;
+    }
+  }
+
+  &:hover &__link svg {
+    transform: translateX(0.5rem);
+  }
+}
+
+.project-card {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 2rem;
+  justify-content: space-between;
+  background: $gray-blue-2;
+  padding: 4rem;
+  padding-right: 0;
+  border-radius: 1.2rem;
+
+  &:hover &__image img {
+    transform: translate(0);
+  }
+
+  &__image {
+    max-width: 65rem;
+    position: relative;
+    background: linear-gradient(180deg, transparent, $gray-200);
+    border-radius: 1.2rem;
+
+    img {
+      width: 103%;
+      height: 103%;
+      object-fit: cover;
+      vertical-align: bottom;
+      border-radius: 1.2rem;
+      transform: translate(1.5rem, -2rem);
+      transition: all 0.3s ease-out;
+    }
+  }
+}
+
+[dir="rtl"] .project-card__image img {
+  transform: translate(-1.5rem, -2rem);
+}
+
+[dir="rtl"] .project-card {
+  padding: 4rem;
+  padding-left: 0;
+}

@@ -1,0 +1,167 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins'as *;
+// Utility Classes
+
+.container {
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.text-gradient {
+  background: $gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: $primary;
+  display: inline-block;
+}
+
+.center {
+  text-align: center;
+}
+
+.section__header {
+  margin-bottom: 5rem;
+  position: relative;
+}
+
+.section__title {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.section__subtitle {
+  font-size: $font-2xl;
+  color: $text-light;
+  max-width: 70rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.section__label {
+  display: inline-block;
+  font-size: $font-xl;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: $primary;
+  margin-bottom: 1rem;
+}
+
+.section__cta-center {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  margin: -0.0625rem;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.inactive {
+  display: none;
+}
+
+.hidden-observe {
+  opacity: 0;
+  transition: 1.3s;
+  transform: translateY(3rem);
+  transition-property: transform, opacity;
+
+  &.show-observe {
+    opacity: 1;
+    transform: translateX(0rem);
+  }
+}
+
+.mainflare-cubes {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  box-shadow: $box-shadow;
+  overflow: hidden;
+  background-color: white;
+  z-index: 900;
+  transition: .5s opacity;
+  padding: 0.5rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(35deg);
+    width: 0%;
+    height: 0.1rem;
+    background-color: rgb(85, 85, 85);
+    transition: .5s width;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &.active {
+    opacity: .5;
+
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+// Creature Wrapper
+#creature-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: .5s opacity;
+}
+
+#creature {
+  font-size: .2vh;
+  font-size: .1vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150em;
+  height: 150em;
+  flex-wrap: wrap;
+
+  div {
+    transform-style: preserve-3d;
+    position: relative;
+    width: 4em;
+    height: 4em;
+    margin: 3em;
+    border-radius: 2em;
+    will-change: transform;
+    mix-blend-mode: plus-lighter;
+  }
+}

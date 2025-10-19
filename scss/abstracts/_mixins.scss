@@ -1,0 +1,34 @@
+// SASS Mixins
+
+// Flexbox center
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Responsive breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 480px) { @content; }
+  }
+  @else if $breakpoint == tablet {
+    @media (max-width: 768px) { @content; }
+  }
+  @else if $breakpoint == desktop {
+    @media (max-width: 1024px) { @content; }
+  }
+  @else if $breakpoint == wide {
+    @media (max-width: 1200px) { @content; }
+  }
+}
+
+// Transition mixin
+@mixin transition($property: all, $duration: 0.3s, $easing: ease) {
+  transition: $property $duration $easing;
+}
+
+// Box shadow mixin
+@mixin box-shadow($shadow) {
+  box-shadow: $shadow;
+}

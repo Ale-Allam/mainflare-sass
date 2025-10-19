@@ -1,0 +1,43 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins'as *;
+// Typography Styles
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  font-family: "Quicksand", sans-serif;
+}
+
+h1 {
+  font-size: $font-5xl;
+}
+
+h2 {
+  font-size: $font-5xl;
+}
+
+h3 {
+  font-size: $font-4xl;
+}
+
+h4 {
+  font-size: $font-3xl;
+}
+
+h5 {
+  font-size: $font-3xl;
+}
+
+h6 {
+  font-size: $font-xl;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
